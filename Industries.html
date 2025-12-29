@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries We Serve - Orvanta Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #00a8ff;
+            --secondary: #2ecc71;
+            --accent: #ff6b6b;
+            --yellow: #ff9900;
+            --dark: #121212;
+            --dark-light: #1e1e1e;
+            --light-bg: #f8f9fa;
+            --light-card: #ffffff;
+            --light-text: #333333;
+            --light-text-secondary: #666666;
+            --light-border: #e0e0e0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles - Keeping Dark */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-placeholder {
+            width: 180px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 700;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #f5f5f5;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section - Industries Focused - WITH BACKGROUND IMAGE */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8)), 
+                        url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80') center/cover no-repeat;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 168, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 20%, rgba(46, 204, 113, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: none;
+            text-align: left;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+            text-align: left;
+            width: 100%;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 0 30px 0;
+            color: #e2e8f0;
+            text-align: left;
+            width: 100%;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+        }
+
+        .cta-button:hover {
+            background-color: #0097e6;
+            transform: translateY(-3px);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: rgba(0, 168, 255, 0.1);
+        }
+
+        /* Industries Overview Section */
+        .industries-overview {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--light-text);
+            width: 100%;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            color: var(--light-text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .industry-card {
+            background-color: var(--light-card);
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--light-border);
+        }
+
+        .industry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .industry-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .industry-icon svg {
+            width: 70px;
+            height: 70px;
+            fill: var(--yellow);
+            transition: var(--transition);
+        }
+
+        .industry-card:hover .industry-icon svg {
+            transform: scale(1.1);
+        }
+
+        .industry-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+
+        .industry-card p {
+            color: var(--light-text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .industry-features {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .industry-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .industry-features li::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        /* Industry Solutions Section - UPDATED WITH BACKGROUND IMAGE AND LEFT ALIGNMENT */
+        .industry-solutions {
+            padding: 100px 0;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('small-factory-645614_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: left; /* Changed from center to left */
+            position: relative;
+        }
+
+        .industry-solutions .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .industry-solutions h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+            text-align: left; /* Ensure heading is left-aligned */
+        }
+
+        .industry-solutions p {
+            max-width: 100%; /* Changed from 800px to 100% */
+            margin: 0 0 20px 0; /* Changed from auto to 0 */
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+            text-align: left; /* Ensure paragraphs are left-aligned */
+        }
+
+        .industry-solutions .cta-button {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .industry-solutions .cta-button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .case-study-card {
+            background-color: var(--light-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .case-study-image h3 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .case-study-content {
+            padding: 30px;
+        }
+
+        .case-study-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+
+        .case-study-content p {
+            color: var(--light-text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .case-study-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--light-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-card);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(0, 168, 255, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            color: var(--light-text-secondary);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            color: var(--light-text);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--light-text-secondary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .cta-section .cta-button {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .cta-section .cta-button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer - Dark Theme */
+        footer {
+            background-color: var(--dark);
+            padding: 20px 0;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo-placeholder {
+            width: 150px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-weight: 700;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .footer-text {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .solutions-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .solutions-image {
+                height: 300px;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="Orvanta__16_-removebg-preview.png" alt="Orvanta Systems" style="height: 40px;">
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a>Industries</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="industries-hero">
+        <div class="container hero-content" style="margin-left: 60px;">
+            <h1>Transforming <span class="gradient-text">Industries</span><br> with Technology</h1>
+            <p>Orvanta Systems delivers industry-specific technology solutions that drive innovation, efficiency, and growth across diverse sectors.</p>
+            
+        </div>
+    </section>
+
+    <!-- Industries Overview Section -->
+    <section class="industries-overview" id="industries">
+        <div class="container">
+            <h2 class="section-title">Industries We Serve</h2>
+            <p class="section-subtitle">We have deep expertise in delivering tailored technology solutions across multiple sectors, helping organizations overcome industry-specific challenges and capitalize on digital opportunities.</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6s1.5.67 1.5 1.5S17.33 9 16.5 9z"/>
+                        </svg>
+                    </div>
+                    <h3>Healthcare</h3>
+                    <p>Revolutionizing patient care with innovative healthtech solutions, EHR systems, telemedicine platforms, and data analytics for better outcomes.</p>
+                    <ul class="industry-features">
+                        <li>Electronic Health Records (EHR)</li>
+                        <li>Telemedicine Platforms</li>
+                        <li>Healthcare Analytics</li>
+                        <li>Patient Engagement Solutions</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.78-1.18 2.73-3.12 3.16z"/>
+                        </svg>
+                    </div>
+                    <h3>Financial Services</h3>
+                    <p>Empowering financial institutions with secure fintech solutions, payment processing, risk management, and regulatory compliance systems.</p>
+                    <ul class="industry-features">
+                        <li>Digital Banking Platforms</li>
+                        <li>Payment Processing Systems</li>
+                        <li>Fraud Detection & Prevention</li>
+                        <li>Regulatory Compliance Tools</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29-0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6 3.6-3.6s3.6 1.62 3.6 3.6S13.98 15.6 12 15.6z"/>
+                        </svg>
+                    </div>
+                    <h3>Manufacturing</h3>
+                    <p>Optimizing production with Industry 4.0 technologies, IoT solutions, supply chain management, and predictive maintenance systems.</p>
+                    <ul class="industry-features">
+                        <li>Industrial IoT Solutions</li>
+                        <li>Supply Chain Optimization</li>
+                        <li>Predictive Maintenance</li>
+                        <li>Quality Control Systems</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3>Retail & E-commerce</h3>
+                    <p>Transforming customer experiences with omnichannel solutions, inventory management, personalized marketing, and seamless payment systems.</p>
+                    <ul class="industry-features">
+                        <li>E-commerce Platforms</li>
+                        <li>Inventory Management</li>
+                        <li>Customer Personalization</li>
+                        <li>Supply Chain Visibility</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                    </div>
+                    <h3>Education</h3>
+                    <p>Enhancing learning experiences with EdTech solutions, LMS platforms, virtual classrooms, and educational analytics for improved outcomes.</p>
+                    <ul class="industry-features">
+                        <li>Learning Management Systems</li>
+                        <li>Virtual Classroom Platforms</li>
+                        <li>Student Analytics</li>
+                        <li>Educational Content Delivery</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                        </svg>
+                    </div>
+                    <h3>Logistics & Transportation</h3>
+                    <p>Streamlining operations with fleet management, route optimization, real-time tracking, and supply chain visibility solutions.</p>
+                    <ul class="industry-features">
+                        <li>Fleet Management Systems</li>
+                        <li>Route Optimization</li>
+                        <li>Real-time Tracking</li>
+                        <li>Supply Chain Analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Solutions Section - UPDATED WITH BACKGROUND IMAGE AND LEFT ALIGNMENT -->
+    <section class="industry-solutions" id="solutions">
+        <div class="container">
+            <h2>Tailored Solutions for Every Industry</h2>
+            <p>At Orvanta Systems, we understand that each industry faces unique challenges and opportunities </p>
+            <p>We combine our technical expertise with industry knowledge to deliver solutions that anticipate </p>
+             <p>future trends and requirements.</p>
+            
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies" id="case-studies">
+        <div class="container">
+            <h2 class="section-title">Industry Success Stories</h2>
+            <p class="section-subtitle">Discover how we've helped organizations across different industries transform their operations and achieve remarkable results.</p>
+            
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-image" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+                        <h3>Healthcare Case Study</h3>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Regional Hospital Network</h3>
+                        <p>Implemented a comprehensive EHR system and telemedicine platform that reduced patient wait times by 40% and improved diagnostic accuracy.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">40%</div>
+                                <div class="stat-label">Reduced Wait Times</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">25%</div>
+                                <div class="stat-label">Cost Savings</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">95%</div>
+                                <div class="stat-label">Patient Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-image" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+                        <h3>Manufacturing Case Study</h3>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Automotive Parts Manufacturer</h3>
+                        <p>Deployed IoT sensors and predictive maintenance solutions that reduced equipment downtime by 60% and improved production efficiency.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">60%</div>
+                                <div class="stat-label">Less Downtime</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">18%</div>
+                                <div class="stat-label">Efficiency Gain</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">30%</div>
+                                <div class="stat-label">Cost Reduction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-image" style="background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+                        <h3>Financial Services Case Study</h3>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Regional Credit Union</h3>
+                        <p>Developed a secure digital banking platform with advanced fraud detection that increased online transactions by 200% while reducing fraud incidents.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-value">200%</div>
+                                <div class="stat-label">Digital Growth</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">75%</div>
+                                <div class="stat-label">Fraud Reduction</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">40%</div>
+                                <div class="stat-label">Customer Engagement</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Industry Leaders Say</h2>
+            <p class="section-subtitle">Hear from our clients about how our industry-specific solutions have transformed their businesses.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Orvanta Systems transformed our healthcare delivery model with their innovative telemedicine platform. Patient satisfaction has never been higher, and our operational efficiency improved by 35%."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>Dr. Jennifer Dawson</h4>
+                            <p>Chief Medical Officer, HealthFirst Network</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The manufacturing analytics solution from Orvanta Systems helped us identify production bottlenecks we didn't even know existed. Our output increased by 22% with the same resources."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>Operations Director, Precision Manufacturing Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Working with Orvanta Systems gave us a competitive edge in the financial services sector. Their secure digital banking platform has been instrumental in our customer acquisition strategy."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SP</div>
+                        <div class="author-info">
+                            <h4>Sarah Peterson</h4>
+                            <p>CEO, First Regional Credit Union</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Industry?</h2>
+            <p>Contact us today to discuss how our industry-specific technology solutions can drive growth, efficiency, and innovation in your organization.</p>
+            <a href="index.html#contact" class="cta-button">Get Your Industry Solution</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="Orvanta__16_-removebg-preview.png" alt="Orvanta Systems" style="height: 40px;">
+                </div>
+                <div class="footer-text">© 2023 Orvanta Systems. All rights reserved.</div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768) {
+                            nav.classList.remove('active');
+                        }
+                    }
+                });
+            });
+            
+            // Add scroll effect to header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = 'rgba(18, 18, 18, 0.98)';
+                } else {
+                    header.style.backgroundColor = 'rgba(18, 18, 18, 0.95)';
+                }
+            });
+            
+            // Industry cards animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe industry cards
+            document.querySelectorAll('.industry-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

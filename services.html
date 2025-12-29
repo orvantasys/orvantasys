@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Orvanta Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #00a8ff;
+            --primary-light: #89d4ff;
+            --secondary: #2ecc71;
+            --accent: #ff6b6b;
+            --dark: #121212;
+            --dark-light: #1e1e1e;
+            --light-bg: #ffffff;
+            --light-card: #f8f9fa;
+            --light-text: #333333;
+            --light-text-secondary: #666666;
+            --light-border: #e0e0e0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #f5f5f5;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* NEW HERO SECTION - Split Layout with Tech Background */
+        .services-hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .tech-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 168, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 168, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 168, 255, 0.3) 0%, transparent 70%);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(to right, #ffffff, #a8d8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 280px;
+            transition: var(--transition);
+            animation: cardFloat 8s infinite ease-in-out;
+        }
+
+        .floating-card:nth-child(1) {
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-card:nth-child(2) {
+            bottom: 20%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .floating-card:nth-child(3) {
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            animation-delay: 4s;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .floating-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .floating-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .floating-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Services Overview */
+        .services-overview {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #24517e 0%, #447cb1 100%);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color:rgb(255, 255, 255);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 0px;
+            color:rgb(255, 255, 255);
+            line-height: 1.8;
+        }
+
+        /* NEW IMPROVED TABS DESIGN WITH DARK BACKGROUND AND VIBRANT COLORS */
+      /* NEW IMPROVED TABS DESIGN WITH DARK BACKGROUND AND VIBRANT COLORS */
+.interactive-services {
+    padding: 100px 0;
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+}
+
+/* Redesigned tabs with dark background and vibrant colors */
+.services-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.service-tab {
+    padding: 16px 24px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white; /* White text for all tabs */
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    border-radius: 12px 12px 0 0;
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+    max-width: 180px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: #2d3748; /* Dark background */
+}
+
+/* Vibrant colors for bottom border and active state */
+.service-tab[data-category="development"] {
+    border-bottom: 6px solid #FF6B6B; /* Vibrant Red */
+}
+
+.service-tab[data-category="cloud"] {
+    border-bottom: 6px solid #4ECDC4; /* Vibrant Teal */
+}
+
+.service-tab[data-category="security"] {
+    border-bottom: 6px solid #45B7D1; /* Vibrant Blue */
+}
+
+.service-tab[data-category="analytics"] {
+    border-bottom: 6px solid #96CEB4; /* Vibrant Green */
+}
+
+.service-tab[data-category="ai"] {
+    border-bottom: 6px solid #FFA726; /* Changed to a darker orange for better contrast with white text */
+}
+
+.service-tab[data-category="mobile"] {
+    border-bottom: 6px solid #DDA0DD; /* Vibrant Purple */
+}
+
+/* Active state with vibrant background */
+.service-tab.active[data-category="development"] {
+    background-color: #FF6B6B; /* Vibrant Red */
+}
+
+.service-tab.active[data-category="cloud"] {
+    background-color: #4ECDC4; /* Vibrant Teal */
+}
+
+.service-tab.active[data-category="security"] {
+    background-color: #45B7D1; /* Vibrant Blue */
+}
+
+.service-tab.active[data-category="analytics"] {
+    background-color: #96CEB4; /* Vibrant Green */
+}
+
+.service-tab.active[data-category="ai"] {
+    background-color: #FFA726; /* Changed to a darker orange for better contrast with white text */
+    color: white; /* Ensure text stays white */
+}
+
+.service-tab.active[data-category="mobile"] {
+    background-color: #DDA0DD; /* Vibrant Purple */
+}
+
+.service-tab.active {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.service-tab:hover:not(.active) {
+    transform: translateY(-3px);
+    background-color: #4a5568; /* Lighter dark background on hover */
+}
+
+.service-tab-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.service-tab span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+        .services-content {
+            position: relative;
+        }
+
+        .service-category {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .service-category.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .category-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--light-text-secondary);
+            line-height: 1.7;
+        }
+
+        .services-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border: 1px solid var(--light-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-item-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .service-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-item p {
+            color: var(--light-text-secondary);
+            margin-bottom: 0px;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            margin-bottom: 5px;
+        }
+
+        .service-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--light-text-secondary);
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .service-link::after {
+            content: '→';
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .service-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* Vector Icon Styles */
+        .vector-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .icon-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+/* Success Stories Section */
+/* Success Stories Section */
+.success-stories {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #6cb40d 0%, #3cb46a 100%);
+}
+
+/* Add this new class for the section header */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: 700;
+    text-align: center; /* Ensure center alignment */
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: white;
+    line-height: 1.8;
+    text-align: center; /* Ensure center alignment */
+}
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin: 60px 0;
+}
+
+.story-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    border: 1px solid var(--light-border);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.story-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.story-category {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--light-border);
+}
+
+.category-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: white;
+}
+
+.category-icon .vector-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.story-category h3 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin: 0;
+}
+
+.story-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.story-content p {
+    color: var(--light-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.client-info {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--light-border);
+    padding-top: 20px;
+}
+
+.client-name {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.client-industry {
+    font-size: 0.9rem;
+    color: var(--light-text-secondary);
+}
+
+.stories-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.stories-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark);
+    padding: 20px 0;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #b0b0b0;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: var(--primary);
+}
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .hero-visual {
+                height: 400px;
+            }
+            
+            .floating-card {
+                width: 240px;
+            }
+            
+            .services-masonry {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .service-tab {
+                max-width: 160px;
+                padding: 12px 18px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+
+            .services-hero {
+                padding: 150px 0 80px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .floating-card {
+                position: relative;
+                margin: 20px auto;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .floating-card:nth-child(1),
+            .floating-card:nth-child(2),
+            .floating-card:nth-child(3) {
+                position: relative;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                left: auto;
+                transform: none;
+            }
+
+            .hero-visual {
+                height: auto;
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+                
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .services-tabs {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .service-tab {
+                flex: 0 0 calc(50% - 10px);
+                max-width: calc(50% - 10px);
+                font-size: 0.9rem;
+                padding: 12px 15px;
+            }
+
+            .services-masonry {
+                grid-template-columns: 1fr;
+            }
+
+            .category-title {
+                font-size: 2rem;
+            }
+
+            .category-description {
+                font-size: 1.1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-tab {
+                flex: 0 0 100%;
+                max-width: 100%;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="Orvanta__16_-removebg-preview.png" alt="Orvanta Systems" style="height: 40px;">
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a>Services</a></li>
+                    <li><a href="Industries.html">Industries</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- NEW HERO SECTION -->
+    <section class="services-hero">
+        <div class="hero-background">
+            <div class="tech-grid"></div>
+            <div class="floating-shapes">
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform Your Business With Digital Excellence</h1>
+                    <p>We deliver innovative technology solutions that drive growth, enhance efficiency, and create competitive advantages for businesses in the digital age.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">Projects Delivered</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Satisfied Clients</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="floating-card">
+                        <div class="card-icon">
+                            <div class="icon-container">
+                                <svg class="vector-icon" viewBox="0 0 24 24">
+                                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Custom Solutions</h3>
+                        <p>Tailored software designed specifically for your business needs and challenges.</p>
+                    </div>
+                    
+                    <div class="floating-card">
+                        <div class="card-icon">
+                            <div class="icon-container">
+                                <svg class="vector-icon" viewBox="0 0 24 24">
+                                    <path d="M19.35,10.03C18.67,6.59 15.64,4 12,4C9.11,4 6.6,5.64 5.35,8.03C2.34,8.36 0,10.9 0,14A6,6 0 0,0 6,20H19A5,5 0 0,0 24,15C24,12.36 21.95,10.22 19.35,10.03Z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Cloud Infrastructure</h3>
+                        <p>Scalable and secure cloud solutions to optimize operations and reduce costs.</p>
+                    </div>
+                    
+                    <div class="floating-card">
+                        <div class="card-icon">
+                            <div class="icon-container">
+                                <svg class="vector-icon" viewBox="0 0 24 24">
+                                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.06 14.8,9.5V11C15.4,11 16,11.6 16,12.3V15.8C16,16.4 15.4,17 14.7,17H9.2C8.6,17 8,16.4 8,15.7V12.2C8,11.6 8.6,11 9.2,11V9.5C9.2,8.06 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Security First</h3>
+                        <p>Comprehensive protection for your digital assets against evolving threats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Technology Services</h2>
+            <p class="section-subtitle">At Orvanta Systems, we deliver cutting-edge solutions that empower businesses to thrive in today's competitive landscape. Our comprehensive suite of services is designed to address your unique challenges and unlock new opportunities for growth and innovation.</p>
+        </div>
+    </section>
+
+    <!-- NEW INTERACTIVE TABS & GRID SERVICES SECTION -->
+    <section class="interactive-services" id="services">
+        <div class="container">
+            <div class="services-tabs">
+                <button class="service-tab active" data-category="development">
+                    <span class="service-tab-icon">
+                        <svg class="vector-icon" viewBox="0 0 24 24">
+                            <path d="M14.6,16.6L19.2,12L14.6,7.4L16,6L22,12L16,18L14.6,16.6M9.4,16.6L4.8,12L9.4,7.4L8,6L2,12L8,18L9.4,16.6Z" />
+                        </svg>
+                    </span>
+                    <span>Software Development</span>
+                </button>
+                <button class="service-tab" data-category="cloud">
+                    <span class="service-tab-icon">
+                        <svg class="vector-icon" viewBox="0 0 24 24">
+                            <path d="M19.35,10.03C18.67,6.59 15.64,4 12,4C9.11,4 6.6,5.64 5.35,8.03C2.34,8.36 0,10.9 0,14A6,6 0 0,0 6,20H19A5,5 0 0,0 24,15C24,12.36 21.95,10.22 19.35,10.03Z" />
+                        </svg>
+                    </span>
+                    <span>Cloud Solutions</span>
+                </button>
+                <button class="service-tab" data-category="security">
+                    <span class="service-tab-icon">
+                        <svg class="vector-icon" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.06 14.8,9.5V11C15.4,11 16,11.6 16,12.3V15.8C16,16.4 15.4,17 14.7,17H9.2C8.6,17 8,16.4 8,15.7V12.2C8,11.6 8.6,11 9.2,11V9.5C9.2,8.06 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z" />
+                        </svg>
+                    </span>
+                    <span>Cybersecurity</span>
+                </button>
+                <button class="service-tab" data-category="analytics">
+                    <span class="service-tab-icon">
+                        <svg class="vector-icon" viewBox="0 0 24 24">
+                            <path d="M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z" />
+                        </svg>
+                    </span>
+                    <span>Data Analytics</span>
+                </button>
+                <button class="service-tab" data-category="ai">
+                    <span class="service-tab-icon">
+                        <svg class="vector-icon" viewBox="0 0 24 24">
+                            <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A2.5,2.5 0 0,0 5,15.5A2.5,2.5 0 0,0 7.5,18A2.5,2.5 0 0,0 10,15.5A2.5,2.5 0 0,0 7.5,13M16.5,13A2.5,2.5 0 0,0 14,15.5A2.5,2.5 0 0,0 16.5,18A2.5,2.5 0 0,0 19,15.5A2.5,2.5 0 0,0 16.5,13Z" />
+                        </svg>
+                    </span>
+                    <span>AI & ML</span>
+                </button>
+                <button class="service-tab" data-category="mobile">
+                    <span class="service-tab-icon">
+                        <svg class="vector-icon" viewBox="0 0 24 24">
+                            <path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z" />
+                        </svg>
+                    </span>
+                    <span>Mobile Apps</span>
+                </button>
+            </div>
+            
+            <div class="services-content">
+                <!-- Software Development Category -->
+                <div class="service-category active" id="development-category">
+                    <div class="category-header">
+                        <h2 class="category-title">Software Development</h2>
+                        <p class="category-description">We create custom software solutions that transform your business operations, enhance efficiency, and drive growth through innovative applications and systems.</p>
+                    </div>
+                    
+                    <div class="services-masonry">
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M12.89,3L14.85,3.4L11.11,21L9.15,20.6L12.89,3M19.59,12L16,8.41V5.58L22.42,12L16,18.41V15.58L19.59,12M1.58,12L8,5.58V8.41L4.41,12L8,15.58V18.41L1.58,12Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Application Development</h3>
+                            <p>Build responsive, scalable web applications with modern frameworks and technologies that deliver exceptional user experiences.</p>
+                            <ul class="service-features">
+                                <li>Frontend & Backend Development</li>
+                                <li>Progressive Web Apps</li>
+                                <li>Single Page Applications</li>
+                                <li>API-First Architecture</li>
+                            </ul>
+                            <a href="Services/Software-Development.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M7,7H17V5H19V19H5V5H7V7Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Enterprise Software</h3>
+                            <p>Develop robust enterprise solutions that streamline operations, improve collaboration, and enhance business intelligence.</p>
+                            <ul class="service-features">
+                                <li>Custom ERP & CRM Systems</li>
+                                <li>Workflow Automation</li>
+                                <li>Business Process Management</li>
+                                <li>Integration Services</li>
+                            </ul>
+                            <a href="Services/Software-Development.html"  class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>System Modernization</h3>
+                            <p>Transform outdated systems into modern, efficient platforms that leverage current technologies and best practices.</p>
+                            <ul class="service-features">
+                                <li>System Migration & Upgrades</li>
+                                <li>Database Modernization</li>
+                                <li>UI/UX Redesign</li>
+                                <li>Performance Optimization</li>
+                            </ul>
+                            <a href="Services/Software-Development.html"  class="service-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cloud Solutions Category -->
+                <div class="service-category" id="cloud-category">
+                    <div class="category-header">
+                        <h2 class="category-title">Cloud Solutions</h2>
+                        <p class="category-description">Harness the power of cloud computing to optimize operations, reduce costs, and enhance business agility across your organization with our comprehensive cloud services.</p>
+                    </div>
+                    
+                    <div class="services-masonry">
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M19.35,10.03C18.67,6.59 15.64,4 12,4C9.11,4 6.6,5.64 5.35,8.03C2.34,8.36 0,10.9 0,14A6,6 0 0,0 6,20H19A5,5 0 0,0 24,15C24,12.36 21.95,10.22 19.35,10.03Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Cloud Migration</h3>
+                            <p>Seamlessly transition your infrastructure and applications to the cloud with minimal disruption and maximum benefits.</p>
+                            <ul class="service-features">
+                                <li>Migration Strategy & Planning</li>
+                                <li>Application Refactoring</li>
+                                <li>Data Migration Services</li>
+                                <li>Post-Migration Optimization</li>
+                            </ul>
+                            <a href="services/cloud-infrastructure.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M14,17H12V15H10V13H12V15H14M14,9H12V11H14V13H12V11H10V9H12V7H10V5H12V7H14M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Infrastructure as Code</h3>
+                            <p>Automate and manage your cloud infrastructure using code for consistency, reliability, and scalability.</p>
+                            <ul class="service-features">
+                                <li>Terraform & CloudFormation</li>
+                                <li>Configuration Management</li>
+                                <li>Automated Deployment Pipelines</li>
+                                <li>Infrastructure Monitoring</li>
+                            </ul>
+                            <a href="services/cloud-infrastructure.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.06 14.8,9.5V11C15.4,11 16,11.6 16,12.3V15.8C16,16.4 15.4,17 14.7,17H9.2C8.6,17 8,16.4 8,15.7V12.2C8,11.6 8.6,11 9.2,11V9.5C9.2,8.06 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Cloud Security & Compliance</h3>
+                            <p>Implement robust security measures and ensure compliance with industry standards in your cloud environment.</p>
+                            <ul class="service-features">
+                                <li>Identity & Access Management</li>
+                                <li>Data Encryption & Protection</li>
+                                <li>Compliance Auditing</li>
+                                <li>Security Monitoring & Alerting</li>
+                            </ul>
+                            <a href="services/cloud-infrastructure.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cybersecurity Category -->
+                <div class="service-category" id="security-category">
+                    <div class="category-header">
+                        <h2 class="category-title">Cybersecurity</h2>
+                        <p class="category-description">Protect your digital assets with comprehensive security solutions that defend against evolving threats while ensuring regulatory compliance and business continuity.</p>
+                    </div>
+                    
+                    <div class="services-masonry">
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.06 14.8,9.5V11C15.4,11 16,11.6 16,12.3V15.8C16,16.4 15.4,17 14.7,17H9.2C8.6,17 8,16.4 8,15.7V12.2C8,11.6 8.6,11 9.2,11V9.5C9.2,8.06 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Threat Detection & Response</h3>
+                            <p>Advanced monitoring and rapid response capabilities to identify and neutralize security threats before they impact your business.</p>
+                            <ul class="service-features">
+                                <li>24/7 Security Monitoring</li>
+                                <li>Real-time Threat Intelligence</li>
+                                <li>Incident Response Planning</li>
+                                <li>Forensic Analysis</li>
+                            </ul>
+                            <a href="services/cybersecurity.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.06 14.8,9.5V11C15.4,11 16,11.6 16,12.3V15.8C16,16.4 15.4,17 14.7,17H9.2C8.6,17 8,16.4 8,15.7V12.2C8,11.6 8.6,11 9.2,11V9.5C9.2,8.06 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Vulnerability Management</h3>
+                            <p>Proactive identification and remediation of security vulnerabilities across your entire technology infrastructure.</p>
+                            <ul class="service-features">
+                                <li>Vulnerability Scanning</li>
+                                <li>Penetration Testing</li>
+                                <li>Security Patch Management</li>
+                                <li>Risk Assessment & Prioritization</li>
+                            </ul>
+                            <a href="services/cybersecurity.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.06 14.8,9.5V11C15.4,11 16,11.6 16,12.3V15.8C16,16.4 15.4,17 14.7,17H9.2C8.6,17 8,16.4 8,15.7V12.2C8,11.6 8.6,11 9.2,11V9.5C9.2,8.06 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Security Compliance</h3>
+                            <p>Ensure your organization meets industry regulations and standards with comprehensive compliance frameworks and audits.</p>
+                            <ul class="service-features">
+                                <li>Regulatory Compliance Audits</li>
+                                <li>Policy Development & Implementation</li>
+                                <li>Security Awareness Training</li>
+                                <li>Governance Frameworks</li>
+                            </ul>
+                            <a href="services/cybersecurity.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Analytics Category -->
+                <div class="service-category" id="analytics-category">
+                    <div class="category-header">
+                        <h2 class="category-title">Data Analytics</h2>
+                        <p class="category-description">Transform raw data into actionable insights with our advanced analytics solutions that drive informed decision-making and business intelligence across your organization.</p>
+                    </div>
+                    
+                    <div class="services-masonry">
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Business Intelligence</h3>
+                            <p>Interactive dashboards and reporting tools that provide real-time visibility into key business metrics and performance indicators.</p>
+                            <ul class="service-features">
+                                <li>Custom Dashboards & Reporting</li>
+                                <li>KPI Tracking & Visualization</li>
+                                <li>Data Storytelling</li>
+                                <li>Executive Reporting</li>
+                            </ul>
+                            <a href="services/data-analytics.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Predictive Analytics</h3>
+                            <p>Leverage historical data and machine learning algorithms to forecast trends, identify patterns, and make data-driven predictions.</p>
+                            <ul class="service-features">
+                                <li>Forecasting Models</li>
+                                <li>Pattern Recognition</li>
+                                <li>Risk Assessment</li>
+                                <li>Scenario Planning</li>
+                            </ul>
+                            <a href="services/data-analytics.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Data Warehousing</h3>
+                            <p>Centralized data storage solutions that consolidate information from multiple sources for comprehensive analysis and reporting.</p>
+                            <ul class="service-features">
+                                <li>Data Integration & ETL</li>
+                                <li>Data Modeling & Architecture</li>
+                                <li>Data Quality Management</li>
+                                <li>Scalable Storage Solutions</li>
+                            </ul>
+                            <a href="services/data-analytics.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI & ML Category -->
+                <div class="service-category" id="ai-category">
+                    <div class="category-header">
+                        <h2 class="category-title">AI & Machine Learning</h2>
+                        <p class="category-description">Harness the power of artificial intelligence to automate processes, enhance decision-making, and create intelligent solutions that drive innovation and competitive advantage.</p>
+                    </div>
+                    
+                    <div class="services-masonry">
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A2.5,2.5 0 0,0 5,15.5A2.5,2.5 0 0,0 7.5,18A2.5,2.5 0 0,0 10,15.5A2.5,2.5 0 0,0 7.5,13M16.5,13A2.5,2.5 0 0,0 14,15.5A2.5,2.5 0 0,0 16.5,18A2.5,2.5 0 0,0 19,15.5A2.5,2.5 0 0,0 16.5,13Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Machine Learning Models</h3>
+                            <p>Custom ML algorithms and models tailored to your specific business needs, from recommendation engines to predictive maintenance.</p>
+                            <ul class="service-features">
+                                <li>Custom Algorithm Development</li>
+                                <li>Model Training & Optimization</li>
+                                <li>Performance Monitoring</li>
+                                <li>Continuous Learning Systems</li>
+                            </ul>
+                            <a href="services/AI-ML.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A2.5,2.5 0 0,0 5,15.5A2.5,2.5 0 0,0 7.5,18A2.5,2.5 0 0,0 10,15.5A2.5,2.5 0 0,0 7.5,13M16.5,13A2.5,2.5 0 0,0 14,15.5A2.5,2.5 0 0,0 16.5,18A2.5,2.5 0 0,0 19,15.5A2.5,2.5 0 0,0 16.5,13Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Natural Language Processing</h3>
+                            <p>AI-powered solutions that understand, interpret, and generate human language for chatbots, sentiment analysis, and content generation.</p>
+                            <ul class="service-features">
+                                <li>Chatbot Development</li>
+                                <li>Sentiment Analysis</li>
+                                <li>Text Classification</li>
+                                <li>Language Translation</li>
+                            </ul>
+                            <a href="services/data-analytics.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A2.5,2.5 0 0,0 5,15.5A2.5,2.5 0 0,0 7.5,18A2.5,2.5 0 0,0 10,15.5A2.5,2.5 0 0,0 7.5,13M16.5,13A2.5,2.5 0 0,0 14,15.5A2.5,2.5 0 0,0 16.5,18A2.5,2.5 0 0,0 19,15.5A2.5,2.5 0 0,0 16.5,13Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Computer Vision</h3>
+                            <p>AI systems that interpret and understand visual information from images and videos for applications like object recognition and quality control.</p>
+                            <ul class="service-features">
+                                <li>Image Recognition</li>
+                                <li>Object Detection</li>
+                                <li>Video Analytics</li>
+                                <li>Quality Control Automation</li>
+                            </ul>
+                            <a href="services/AI-ML.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Apps Category -->
+                <div class="service-category" id="mobile-category">
+                    <div class="category-header">
+                        <h2 class="category-title">Mobile Applications</h2>
+                        <p class="category-description">Engage your customers with intuitive and powerful mobile applications that deliver exceptional user experiences across all devices and platforms.</p>
+                    </div>
+                    
+                    <div class="services-masonry">
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Native iOS & Android</h3>
+                            <p>High-performance mobile applications built specifically for iOS and Android platforms using native technologies and best practices.</p>
+                            <ul class="service-features">
+                                <li>Swift & Kotlin Development</li>
+                                <li>Platform-Specific UI/UX</li>
+                                <li>App Store Optimization</li>
+                                <li>Performance Optimization</li>
+                            </ul>
+                            <a href="services/AI-ML.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Cross-Platform Solutions</h3>
+                            <p>Efficient mobile applications that run seamlessly across multiple platforms using React Native, Flutter, or other cross-platform frameworks.</p>
+                            <ul class="service-features">
+                                <li>React Native & Flutter</li>
+                                <li>Single Codebase Development</li>
+                                <li>Consistent User Experience</li>
+                                <li>Faster Time to Market</li>
+                            </ul>
+                            <a href="services/AI-ML.html" class="service-link">Learn More</a>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <div class="icon-container">
+                                    <svg class="vector-icon" viewBox="0 0 24 24">
+                                        <path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Progressive Web Apps</h3>
+                            <p>Web applications that deliver app-like experiences with offline functionality, push notifications, and home screen installation.</p>
+                            <ul class="service-features">
+                                <li>Offline Functionality</li>
+                                <li>Push Notifications</li>
+                                <li>App-Like User Experience</li>
+                                <li>No App Store Requirements</li>
+                            </ul>
+                            <a href="services/AI-ML.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Success Stories Section -->
+<section class="success-stories">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Client Success Stories</h2>
+            <p class="section-subtitle">Discover how we've helped businesses transform their operations and achieve remarkable results through our technology solutions.</p>
+        </div>
+        
+        <div class="stories-grid">
+            <!-- Cybersecurity Success Story -->
+            <div class="story-card">
+                <div class="story-category">
+                    <div class="category-icon">
+                        <svg class="vector-icon" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.06 14.8,9.5V11C15.4,11 16,11.6 16,12.3V15.8C16,16.4 15.4,17 14.7,17H9.2C8.6,17 8,16.4 8,15.7V12.2C8,11.6 8.6,11 9.2,11V9.5C9.2,8.06 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z" />
+                        </svg>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                </div>
+                <div class="story-content">
+                    <p>A leading financial institution approached us after experiencing multiple security breaches. We implemented a comprehensive cybersecurity framework including real-time threat detection, employee security training, and advanced encryption protocols. Within six months, security incidents decreased by 92% and the company achieved full regulatory compliance, saving an estimated $2.3M in potential breach costs.</p>
+                    <div class="client-info">
+                        <span class="client-name">Global Financial Corp</span>
+                        <span class="client-industry">Banking & Finance</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Software Development Success Story -->
+            <div class="story-card">
+                <div class="story-category">
+                    <div class="category-icon">
+                        <svg class="vector-icon" viewBox="0 0 24 24">
+                            <path d="M14.6,16.6L19.2,12L14.6,7.4L16,6L22,12L16,18L14.6,16.6M9.4,16.6L4.8,12L9.4,7.4L8,6L2,12L8,18L9.4,16.6Z" />
+                        </svg>
+                    </div>
+                    <h3>Software Development</h3>
+                </div>
+                <div class="story-content">
+                    <p>A healthcare provider struggling with inefficient patient management systems partnered with us to develop a custom EHR platform. Our solution streamlined appointment scheduling, automated billing processes, and integrated with existing medical devices. The new system reduced administrative workload by 65%, improved patient satisfaction scores by 40%, and increased daily patient capacity by 30%, transforming their operational efficiency.</p>
+                    <div class="client-info">
+                        <span class="client-name">MediCare Network</span>
+                        <span class="client-industry">Healthcare</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cloud Solutions Success Story -->
+            <div class="story-card">
+                <div class="story-category">
+                    <div class="category-icon">
+                        <svg class="vector-icon" viewBox="0 0 24 24">
+                            <path d="M19.35,10.03C18.67,6.59 15.64,4 12,4C9.11,4 6.6,5.64 5.35,8.03C2.34,8.36 0,10.9 0,14A6,6 0 0,0 6,20H19A5,5 0 0,0 24,15C24,12.36 21.95,10.22 19.35,10.03Z" />
+                        </svg>
+                    </div>
+                    <h3>Cloud Solutions</h3>
+                </div>
+                <div class="story-content">
+                    <p>An e-commerce retailer experiencing rapid growth was struggling with server capacity during peak seasons. We migrated their infrastructure to a scalable cloud solution with automated load balancing and implemented a microservices architecture. This resulted in 99.9% uptime during holiday sales, reduced infrastructure costs by 35%, and improved page load speeds by 60%, directly contributing to a 25% increase in conversion rates.</p>
+                    <div class="client-info">
+                        <span class="client-name">TrendStyle Retail</span>
+                        <span class="client-industry">E-commerce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stories-cta">
+            <p>Ready to create your success story?</p>
+            <a href="index.html#contact" class="cta-button">Start Your Project</a>
+        </div>
+    </div>
+</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="Orvanta__16_-removebg-preview.png" alt="Orvanta Systems" style="height: 40px;">
+                </div>
+                <div class="footer-text">© 2023 Orvanta Systems. All rights reserved.</div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Services tabs functionality
+            const serviceTabs = document.querySelectorAll('.service-tab');
+            const serviceCategories = document.querySelectorAll('.service-category');
+            
+            serviceTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetCategory = this.getAttribute('data-category');
+                    
+                    // Update active tab
+                    serviceTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding category
+                    serviceCategories.forEach(category => {
+                        category.classList.remove('active');
+                        if (category.id === `${targetCategory}-category`) {
+                            category.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

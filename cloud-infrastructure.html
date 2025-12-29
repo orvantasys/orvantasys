@@ -1,0 +1,500 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Infrastructure - Orvanta Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #00a8ff;
+            --secondary: #2ecc71;
+            --dark: #121212;
+            --dark-light: #1e1e1e;
+            --light-bg: #ffffff;
+            --light-card: #f8f9fa;
+            --light-text: #333333;
+            --light-text-secondary: #666666;
+            --light-border: #e0e0e0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+ /* Add this new Back Link CSS */
+        .back-link-container {
+            background-color: var(--light-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        .back-link:hover {
+            color: var(--secondary);
+            background-color: rgba(0, 168, 255, 0.1);
+            transform: translateX(-5px);
+        }
+
+        .back-arrow {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-logo-image {
+            height: 40px;
+            width: auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #f5f5f5;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section for Service Page */
+        .service-hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(78, 6, 173, 0.8), rgba(78, 6, 173, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        .service-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .service-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Content Section */
+        .service-content {
+            padding: 80px 0;
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+        }
+
+        .content-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .content-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--light-text-secondary);
+        }
+
+        .bullet-points {
+            background: var(--light-card);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        .bullet-points h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+
+        .bullet-points ul {
+            list-style: none;
+        }
+
+        .bullet-points li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--light-text);
+        }
+
+        .bullet-points li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .service-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .service-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .service-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            padding: 20px 0;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: #b0b0b0;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-hero p {
+                font-size: 1.1rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .bullet-points {
+                padding: 25px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+                <a href="#" class="logo">
+                <img src="Orvanta__16_-removebg-preview.png" alt="Orvanta Systems" style="height: 40px;">
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#About">About</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#clients">Clients</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <h1>Cloud Infrastructure</h1>
+            <p>Scalable, secure, and resilient cloud solutions that empower your business to innovate and grow without limits.</p>
+        </div>
+    </section>
+ <!-- Back Link -->
+    <div class="back-link-container">
+        <div class="container">
+            <a href="../services.html" class="back-link">
+                <span class="back-arrow">←</span>
+                Back to Services
+            </a>
+        </div>
+    </div>
+    <!-- Content Section -->
+    <section class="service-content">
+        <div class="container">
+            <div class="content-section">
+                <h2>Modern Cloud Solutions</h2>
+                <p>At Orvanta Systems, we design and implement robust cloud infrastructure that transforms how your business operates. Our cloud solutions provide the flexibility, scalability, and security needed to support your digital transformation journey and drive business growth.</p>
+                <p>We help organizations leverage the power of cloud computing to reduce costs, improve operational efficiency, and accelerate innovation. Whether you're looking to migrate existing systems or build new cloud-native applications, our expertise ensures a seamless transition and optimal performance.</p>
+                
+                <div class="bullet-points">
+                    <h3>Our Cloud Infrastructure Services</h3>
+                    <ul>
+                        <li>Cloud Migration & Strategy - Comprehensive planning and execution for seamless transition to cloud environments</li>
+                        <li>Infrastructure as a Service (IaaS) - Flexible and scalable computing resources on demand</li>
+                        <li>Platform as a Service (PaaS) - Development platforms that accelerate application deployment</li>
+                        <li>Multi-Cloud Management - Unified management across AWS, Azure, Google Cloud, and other platforms</li>
+                        <li>Cloud Security & Compliance - Enterprise-grade security measures and regulatory compliance</li>
+                        <li>Disaster Recovery & Backup - Robust business continuity solutions with automated failover</li>
+                        <li>Cost Optimization - Continuous monitoring and optimization to maximize cloud investment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Why Choose Our Cloud Solutions</h2>
+                <p>Our cloud infrastructure services are designed to provide businesses with the agility and scalability needed in today's competitive landscape. We focus on building solutions that not only meet your current needs but also adapt to future growth and technological advancements.</p>
+                <p>With our proven methodologies and deep expertise across multiple cloud platforms, we ensure that your cloud infrastructure is reliable, secure, and cost-effective. We partner with you throughout your cloud journey, from initial strategy to ongoing optimization and support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <h2>Ready to Elevate Your Cloud Strategy?</h2>
+            <p>Let's discuss how our cloud infrastructure services can transform your business operations and drive innovation.</p>
+            <a href="../index.html#contact" class="cta-button">Start Your Cloud Journey</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                <img src="Orvanta__16_-removebg-preview.png" alt="Orvanta Systems" style="height: 40px;">
+                </div>
+                <div class="footer-text">© 2023 Orvanta Systems. All rights reserved.</div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
